@@ -26,7 +26,7 @@ const Banner = () => {
 
   const requestBannerMovie = async () => {
     try {
-      const res = await requestApi(requests.requestMovieNowPlaying);
+      const res = await requestApi.get(requests.requestMovieNowPlaying);
       const randomId = Math.floor(Math.random() * res.data.results.length);
       const randomMovieId = res.data.results[randomId].id;
       const { data: bannerVideo } = await requestApi.get(

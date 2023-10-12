@@ -34,10 +34,7 @@ const fadeIn = keyframes`
 `;
 export const BannerContainer = styled.div`
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -76,7 +73,7 @@ export const BannerInfoText = styled.div`
     margin-bottom: var(--gap-lg);
   }
   @media (max-width: ${mobile}) {
-    padding-left: var(--gap-md);
+    padding: 0 var(--gap-md);
     bottom: 7%;
     h2 {
       font-size: var(--fz-xxl);

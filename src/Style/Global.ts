@@ -37,6 +37,7 @@ export const GlobalStyle = createGlobalStyle`
     --gap-sm: 15rem;
     --gap-md: 20rem;
     --gap-lg: 30rem;
+    --gap-xl: 40rem;
   }
   * {
     box-sizing: border-box;
