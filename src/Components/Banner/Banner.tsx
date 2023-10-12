@@ -13,11 +13,16 @@ import {
 import { MovieProps } from '../../Util/interface';
 import { Button } from '../../Style/UI';
 import { FaTimes } from 'react-icons/fa';
+import { mobile } from '../../Style/Global';
 
 const Banner = () => {
   const [bannerMovie, setBannerMovie] = useState<MovieProps | null>(null);
   const [trigger, setTrigger] = useState<boolean>(false);
   const [videoPlay, setVideoPlay] = useState<boolean>(false);
+  const [windowWidth, setWindowWidth] = useState<number>(
+    window.innerWidth
+  );
+  const [truncateLimit, setTruncateLimit] = useState<number>(100);
 
   const requestBannerMovie = async () => {
     try {
@@ -44,14 +49,12 @@ const Banner = () => {
 
   useEffect(() => {
     let intervalId: NodeJS.Timer | number | undefined;
-
     if (!videoPlay) {
       requestBannerMovie();
       intervalId = setInterval(() => {
         requestBannerMovie();
       }, 5000);
     }
-
     return () => {
       if (intervalId !== undefined) {
         clearInterval(intervalId);
@@ -59,7 +62,23 @@ const Banner = () => {
     };
   }, [videoPlay]);
 
-  console.log(bannerMovie, ':::::');
+  useEffect(() => {
+    const windowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', windowResize);
+    return () => {
+      window.removeEventListener('resize', windowResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (windowWidth <= parseInt(mobile, 10)) {
+      setTruncateLimit(80);
+    } else {
+      setTruncateLimit(100);
+    }
+  }, [windowWidth]);
 
   return (
     <BannerWrap>
@@ -92,7 +111,7 @@ const Banner = () => {
           <BannerInfo>
             <BannerInfoText>
               <h2>{bannerMovie?.title || bannerMovie?.original_title}</h2>
-              <p>{truncate(bannerMovie?.overview, 100)}</p>
+              <p>{truncate(bannerMovie?.overview, truncateLimit)}</p>
 
               {bannerMovie?.videos?.results?.[0]?.key && (
                 <Button onClick={() => setVideoPlay(true)}>play</Button>

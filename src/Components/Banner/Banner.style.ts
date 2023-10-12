@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { mobile } from '../../Style/Global';
 import { Button } from '../../Style/UI';
 
 export const BannerWrap = styled.div`
@@ -18,6 +19,12 @@ export const BannerWrap = styled.div`
       rgba(37, 37, 37, 0.61),
       var(--g_100)
     );
+  }
+  @media (max-width: ${mobile}) {
+    height: 450rem;
+    &:after {
+      height: 30rem;
+    }
   }
 `;
 
@@ -68,6 +75,21 @@ export const BannerInfoText = styled.div`
     word-break: keep-all;
     margin-bottom: var(--gap-lg);
   }
+  @media (max-width: ${mobile}) {
+    padding-left: var(--gap-md);
+    bottom: 7%;
+    h2 {
+      font-size: var(--fz-xxl);
+    }
+    p {
+      width: 80%;
+      font-size: var(--fz-sm);
+    }
+    ${Button} {
+      transform: scale(0.8);
+      transform-origin: left top;
+    }
+  }
 `;
 
 export const VideoInfo = styled.div`
@@ -87,6 +109,12 @@ export const VideoOverlay = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+  @media (max-width: ${mobile}) {
+    width: 40rem;
+    height: 40rem;
+    top: initial;
+    bottom: 0;
+  }
   ${Button} {
     position: absolute;
     left: 50%;
@@ -97,6 +125,10 @@ export const VideoOverlay = styled.div`
     opacity: 0;
     visibility: hidden;
     transition: 0.3s;
+    @media (max-width: ${mobile}) {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 `;
 export const Iframe = styled.iframe`

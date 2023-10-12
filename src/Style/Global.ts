@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
+export const mobile: string = '768px';
 export const GlobalStyle = createGlobalStyle`
   /** default theme */
   :root{
@@ -66,6 +67,11 @@ export const GlobalStyle = createGlobalStyle`
     'Apple SD Gothic Neo', 
     'Noto Sans KR', 
     'Malgun Gothic', sans-serif;
+  }
+  @media (max-width: 768px) {
+    body {
+      margin-top: 60rem;
+    }
   }
   ul, ol {
     list-style: none;
