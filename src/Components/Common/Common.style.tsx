@@ -48,6 +48,7 @@ export const LoginBtn = styled.button`
   font-family: var(--en);
   border: 1px solid var(--white);
   cursor: pointer;
+  border-radius: 4rem;
   transition: 0.3s;
   &:hover {
     box-shadow: rgba(255, 255, 255, 0.1) 0px 4px 16px,
@@ -67,5 +68,26 @@ export const Profile = styled.a`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+`;
+export const FooterWrap = styled.footer`
+  width: 100%;
+  padding: calc(var(--gap-lg) * 3) var(--gap-sm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const Quick = styled.ul`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--gap-lg);
+  li {
+    font-size: var(--fz-sm);
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      color: var(--primary);
+    }
   }
 `;

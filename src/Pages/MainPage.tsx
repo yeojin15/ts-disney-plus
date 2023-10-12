@@ -1,7 +1,12 @@
 import React from 'react';
+import Banner from '../Components/Banner/Banner';
 
 const MainPage = () => {
-  return <div>MainPage</div>;
+  return (
+    <>
+      <Banner />
+    </>
+  );
 };
 
 export default MainPage;

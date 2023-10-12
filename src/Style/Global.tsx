@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   /** default theme */
   :root{
     --primary : #0063e5;
-    --g_100: #2b3145;
+    --g_100: #13161f;
     --g_50: #838383;
     --g_10: #C9C9C9;
     --r_100: #C00A0A;
@@ -25,6 +25,13 @@ export const GlobalStyle = createGlobalStyle`
     --fz-xxl: 24rem;
     --fz-xxxl: 30rem;
 
+    --fw-normal: 400;
+    --fw-bold: 700;
+
+    --lh-sm: 1.2;
+    --lh-md: 1.5;
+    --lh-lg: 2;
+
     --gap-xs: 10rem;
     --gap-sm: 15rem;
     --gap-md: 20rem;
@@ -43,11 +50,13 @@ export const GlobalStyle = createGlobalStyle`
     font-family: var(--Ko), sans-serif;
     font-weight: normal;
     font-style: normal;
-    line-height: 180%;
+    line-height: 1;
     background: var(--g_100);
+    color: var(--white);
   }
   body {
     overflow-x: hidden;
+    margin-top: 80rem;
     font-family: -apple-system, 
     BlinkMacSystemFont, 
     system-ui, 
