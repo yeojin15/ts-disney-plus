@@ -43,14 +43,21 @@ const Banner = () => {
   }, [bannerMovie]);
 
   useEffect(() => {
-    requestBannerMovie();
-    const intervalId = setInterval(() => {
+    let intervalId: NodeJS.Timer | number | undefined;
+
+    if (!videoPlay) {
       requestBannerMovie();
-    }, 5000);
+      intervalId = setInterval(() => {
+        requestBannerMovie();
+      }, 5000);
+    }
+
     return () => {
-      clearInterval(intervalId);
+      if (intervalId !== undefined) {
+        clearInterval(intervalId);
+      }
     };
-  }, []);
+  }, [videoPlay]);
 
   console.log(bannerMovie, ':::::');
 
