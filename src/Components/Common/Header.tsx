@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   HeaderWrap,
   Input,
@@ -8,9 +8,23 @@ import {
 } from './Common.style';
 
 const Header = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState<boolean>(false); // auth 설정 후 삭제하기
+  const [isScroll, setIsScroll] = useState<boolean>(false);
+
+  const scrollHeader = () => {
+    if (window.scrollY > 50) setIsScroll(true);
+    else setIsScroll(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHeader);
+    return () => {
+      window.removeEventListener('scroll', scrollHeader);
+    };
+  }, []);
+
   return (
-    <HeaderWrap>
+    <HeaderWrap $isScroll={isScroll}>
       <Logo>
         <img
           alt='Disney Plus Logo'

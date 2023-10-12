@@ -1,6 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mobile } from '../../Style/Global';
 
-export const HeaderWrap = styled.header`
+export const HeaderWrap = styled.header<{ $isScroll: boolean }>`
+  ${({ $isScroll }) =>
+    $isScroll &&
+    css`
+      background: rgba(19, 22, 31, 0.4);
+      @media (max-width: ${mobile}) {
+        background: var(--g_100);
+      }
+    `}
   position: fixed;
   left: 0;
   right: 0;
@@ -8,17 +17,25 @@ export const HeaderWrap = styled.header`
   height: 80rem;
   z-index: 10;
   padding: 0 var(--gap-sm);
-  background: var(--g_100);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background 0.3s ease;
+
+  @media (max-width: ${mobile}) {
+    height: 60rem;
+    background: var(--g_100);
+  }
 `;
 export const Logo = styled.a`
   display: flex;
   align-items: center;
-  width: 100px;
+  width: 100rem;
   height: 100%;
   cursor: pointer;
+  @media (max-width: ${mobile}) {
+    width: 70rem;
+  }
 `;
 export const Input = styled.input`
   position: absolute;
@@ -38,6 +55,10 @@ export const Input = styled.input`
     color: var(--g_10);
     font-size: var(--fz-sm);
   }
+  @media (max-width: ${mobile}) {
+    width: 150rem;
+    height: 35rem;
+  }
 `;
 export const LoginBtn = styled.button`
   padding: 0 var(--gap-xs);
@@ -55,6 +76,10 @@ export const LoginBtn = styled.button`
       rgba(255, 255, 255, 0.05) 0px 8px 32px;
     transform: translateY(-2px);
   }
+  @media (max-width: ${mobile}) {
+    height: 30rem;
+    font-size: var(--fz-xs);
+  }
 `;
 export const Profile = styled.a`
   display: flex;
@@ -69,6 +94,10 @@ export const Profile = styled.a`
     height: 100%;
     object-fit: cover;
   }
+  @media (max-width: ${mobile}) {
+    width: 35rem;
+    height: 35rem;
+  }
 `;
 export const FooterWrap = styled.footer`
   width: 100%;
@@ -76,6 +105,9 @@ export const FooterWrap = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: ${mobile}) {
+    padding: var(--gap-lg) var(--gap-sm);
+  }
 `;
 export const Quick = styled.ul`
   display: flex;

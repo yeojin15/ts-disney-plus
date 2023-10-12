@@ -1,7 +1,8 @@
+import { FooterLinkArray } from '../../Util/interface';
 import { FooterWrap, Quick } from './Common.style';
 
 const Footer = () => {
-  const links = [
+  const links: FooterLinkArray[] = [
     {
       name: 'Github',
       href: 'https://github.com/yeojin15',

@@ -15,3 +15,12 @@ export interface MovieProps {
   video?: boolean;
   videos?: { results: VideoResults[] };
 }
+export interface CategoryArray {
+  name: string;
+  img: string;
+  video: string;
+}
+export interface FooterLinkArray {
+  name: string;
+  href: string;
+}
