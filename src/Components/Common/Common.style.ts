@@ -5,7 +5,7 @@ export const HeaderWrap = styled.header<{ $isScroll: boolean }>`
   ${({ $isScroll }) =>
     $isScroll &&
     css`
-      background: rgba(19, 22, 31, 0.4);
+      background: rgba(19, 22, 31, 0.7);
       @media (max-width: ${mobile}) {
         background: var(--g_100);
       }

@@ -8,6 +8,7 @@ export const CategoryWrap = styled.ul`
   grid-template-columns: repeat(5, 1fr);
   @media (max-width: ${mobile}) {
     gap: var(--gap-md);
+    padding: calc(var(--gap-lg) * 2) var(--gap-md) var(--gap-md);
     grid-template-columns: repeat(2, 1fr);
   }
 `;
