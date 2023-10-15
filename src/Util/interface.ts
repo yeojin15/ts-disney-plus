@@ -2,12 +2,18 @@ export interface VideoResults {
   id?: string;
   key?: string;
 }
+export interface GenresArray {
+  id?: number;
+  name: string;
+}
 export interface MovieProps {
   id: string | number;
   title: string;
   original_title?: string;
   name?: string;
   original_name?: string;
+  genres?: GenresArray[];
+  genre_ids?: number[];
   overview?: string;
   poster_path?: string;
   backdrop_path?: string;

@@ -1,8 +1,8 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import MainPage from './MainPage';
-import Header from '../Components/Common/Header';
-import Footer from '../Components/Common/Footer';
+import Header from '../Components/Layout/Header';
+import Footer from '../Components/Layout/Footer';
+import MainPage from './Main/MainPage';
+import SearchPage from './Search/SearchPage';
 
 const Router = () => {
   return (
@@ -10,6 +10,7 @@ const Router = () => {
       <Header />
       <Routes>
         <Route path='/' element={<MainPage />} />
+        <Route path='search' element={<SearchPage />} />
       </Routes>
       <Footer />
     </>

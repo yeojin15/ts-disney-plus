@@ -1,4 +1,4 @@
-import React from 'react';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 const LikedMovie = () => {
   return <div>LikedMovie</div>;

@@ -1,7 +1,7 @@
-import Banner from '../Components/Banner/Banner';
-import Category from '../Components/Category/Category';
-import MovieList from '../Components/Movie/MovieList';
-import requests from '../Util/requests';
+import Banner from '../../Components/Banner/Banner';
+import Category from '../../Components/Category/Category';
+import MovieList from '../../Components/Movie/MovieList';
+import requests from '../../Util/requests';
 
 const MainPage = () => {
   return (
