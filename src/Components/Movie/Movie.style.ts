@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { mobile } from '../../Style/Global';
+import { mobile } from '../../Common/Global';
 
 export const MovieListWrap = styled.div`
   position: relative;

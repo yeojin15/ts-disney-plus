@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mobile } from '../../Style/Global';
+import { mobile } from '../../Common/Global';
 
 export const CategoryWrap = styled.ul`
   display: grid;

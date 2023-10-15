@@ -1,19 +1,29 @@
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import {
   HeaderWrap,
   Input,
   LoginBtn,
   Logo,
   Profile,
-} from './Common.style';
+} from './Layout.style';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false); // auth 설정 후 삭제하기
   const [isScroll, setIsScroll] = useState<boolean>(false);
+  const [searchWord, setSearchWord] = useState<string>('');
+  const navigate = useNavigate();
 
   const scrollHeader = () => {
     if (window.scrollY > 50) setIsScroll(true);
     else setIsScroll(false);
+  };
+
+  const searchValueChange = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
+    setSearchWord(e.target.value);
+    navigate(`/search?q=${e.target.value}`);
   };
 
   useEffect(() => {
@@ -32,7 +42,12 @@ const Header = () => {
           onClick={() => (window.location.href = '/')}
         />
       </Logo>
-      <Input placeholder='검색어를 입력하세요' />
+      <Input
+        placeholder='검색어를 입력하세요'
+        type='text'
+        value={searchWord}
+        onChange={searchValueChange}
+      />
       {isLogin ? (
         <Profile onClick={() => setIsLogin(false)}>
           <img src='/images/logo.svg' alt='profile' />

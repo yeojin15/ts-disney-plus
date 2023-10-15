@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { mobile } from '../../Style/Global';
+import { mobile } from '../../Common/Global';
 
 export const HeaderWrap = styled.header<{ $isScroll: boolean }>`
   ${({ $isScroll }) =>

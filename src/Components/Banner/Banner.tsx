@@ -11,9 +11,9 @@ import {
   VideoOverlay,
 } from './Banner.style';
 import { MovieProps } from '../../Util/interface';
-import { Button } from '../../Style/UI';
+import { Button } from '../../Common/UI';
 import { FaTimes } from 'react-icons/fa';
-import { mobile } from '../../Style/Global';
+import { mobile } from '../../Common/Global';
 
 const Banner = () => {
   const [bannerMovie, setBannerMovie] = useState<MovieProps | null>(null);

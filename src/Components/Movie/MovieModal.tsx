@@ -18,20 +18,27 @@ type MovieModalProps = MovieProps & {
   setModalOpen: Dispatch<SetStateAction<boolean>>;
 };
 const MovieModal: React.FC<MovieModalProps> = ({
-  backdrop_path,
+  id,
   title,
   original_title,
   name,
   original_name,
+  genre_ids,
   overview,
+  backdrop_path,
+  media_type,
+  popularity,
   release_date,
   first_air_date,
   vote_average,
+  video,
+  videos,
   setModalOpen,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   useClickOutside(ref, () => setModalOpen(false));
 
+  console.log(genre_ids, ':::');
   return (
     <ModalWrap>
       <ModalBox ref={ref}>

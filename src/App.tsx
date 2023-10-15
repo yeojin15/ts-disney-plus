@@ -1,4 +1,4 @@
-import { GlobalStyle } from './Style/Global';
+import { GlobalStyle } from './Common/Global';
 import Router from './Pages/Router';
 
 function App() {

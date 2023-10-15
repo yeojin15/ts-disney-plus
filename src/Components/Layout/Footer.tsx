@@ -1,5 +1,5 @@
 import { FooterLinkArray } from '../../Util/interface';
-import { FooterWrap, Quick } from './Common.style';
+import { FooterWrap, Quick } from './Layout.style';
 
 const Footer = () => {
   const links: FooterLinkArray[] = [

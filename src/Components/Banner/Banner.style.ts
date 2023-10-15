@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
-import { mobile } from '../../Style/Global';
-import { Button } from '../../Style/UI';
+import { mobile } from '../../Common/Global';
+import { Button } from '../../Common/UI';
 
 export const BannerWrap = styled.div`
   width: 100%;
