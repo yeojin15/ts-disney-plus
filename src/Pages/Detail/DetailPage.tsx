@@ -76,11 +76,14 @@ const DetailPage = () => {
               className='btn-like'
               // onClick={() => setIsLike(!isLike)}
             >
-              <AiFillHeart size={28} />
+              <AiOutlineHeart size={28} />
+              {/* <AiFillHeart size={28} /> */}
             </p>
           </InfoBox>
         </DetailTitle>
-        <DetailOverview>{movie?.overview}</DetailOverview>
+        <DetailOverview>
+          {movie?.overview ? movie.overview : '등록정보가 없습니다.'}
+        </DetailOverview>
         <h3>비슷한 장르 더보기</h3>
         <MovieList
           movie={movie}

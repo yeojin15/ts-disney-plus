@@ -9,7 +9,9 @@ import {
   ModalTitle,
   ModalInfo,
   ModalTitleBox,
-} from './Movie.style';
+  ModalTitleInfo,
+  ModalConsole,
+} from './MovieModal.style';
 import { FaTimes } from 'react-icons/fa';
 import { MovieProps } from '../../Util/interface';
 import { baseURL } from '../../Util/api';
@@ -69,12 +71,11 @@ const MovieModal: React.FC<MovieModalProps> = ({
           <ModalText>
             <ModalTitle>
               <ModalTitleBox>
-                <div>
-                  공개일 : {release_date || first_air_date}
-                  <span>-</span>
+                <ModalTitleInfo>
+                  <p>공개일 : {release_date || first_air_date}</p>
                   <span>평점 : {vote_average?.toFixed(1)}</span>
-                </div>
-                <div>
+                </ModalTitleInfo>
+                <ModalConsole>
                   <p
                     className='btn-like'
                     onClick={() => setIsLike(!isLike)}>
@@ -94,7 +95,7 @@ const MovieModal: React.FC<MovieModalProps> = ({
                     $fontSize='var(--fz-sm)'>
                     상세보기
                   </Button>
-                </div>
+                </ModalConsole>
               </ModalTitleBox>
               <h2>{title || original_title || name || original_name}</h2>
             </ModalTitle>

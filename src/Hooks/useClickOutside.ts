@@ -1,5 +1,6 @@
 import { RefObject, useEffect } from 'react';
 
+/** 모달 요소 밖 감지, 클릭 시 모달 닫기 */
 export default function useClickOutside<T extends HTMLElement>(
   ref: RefObject<T>,
   callback: () => void
