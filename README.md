@@ -1,5 +1,5 @@
 # TypeScript based Disney-Plus-App
-(DEMO)[https://ts-disney-plus.web.app] (진행중)
+(DEMO - 진행중)[https://ts-disney-plus.web.app]
 
 ### Pages
 1. Join
