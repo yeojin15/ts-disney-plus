@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { MovieListProps, MovieProps } from '../../Util/interface';
-import { MovieListWrap, SlideBox } from './Movie.style';
+import { MovieListWrap, SlideBox } from './MovieList.style';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,6 +9,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/pagination';
 import { baseURL, requestApi } from '../../Util/api';
 import MovieModal from './MovieModal';
+import useModal from '../../Hooks/useModal';
 
 const MovieList = ({
   title,
@@ -19,11 +20,8 @@ const MovieList = ({
   $padding,
 }: MovieListProps) => {
   const [movies, setMovies] = useState<MovieProps[] | null>(null);
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const [selectedMovie, setSelectedMovie] = useState<MovieProps | null>(
-    null
-  );
-
+  const { modalOpen, setModalOpen, selectedMovie, clickedMovie } =
+    useModal();
   const dataToMap = sameGenre || movies;
 
   /** 각 항목에 맞는 api 요청 함수 */
@@ -41,12 +39,6 @@ const MovieList = ({
   useEffect(() => {
     requestMovies();
   }, []);
-
-  /** 클릭한 영화의 정보 state 에 담기 */
-  const clickedMovie = (movie: MovieProps) => {
-    setModalOpen(true);
-    setSelectedMovie(movie);
-  };
 
   return (
     <MovieListWrap $padding={$padding}>

@@ -21,7 +21,7 @@ export const DetailInfo = styled.div`
   }
   h3 {
     font-size: var(--fz-lg);
-    margin-top: var(--gap-lg);
+    margin-top: calc(var(--gap-lg) * 2);
   }
 `;
 export const DetailTitle = styled.div`

@@ -6,13 +6,14 @@ import {
   Logo,
   Profile,
 } from './Layout.style';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false); // auth 설정 후 삭제하기
   const [isScroll, setIsScroll] = useState<boolean>(false);
   const [searchWord, setSearchWord] = useState<string>('');
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const scrollHeader = () => {
     if (window.scrollY > 50) setIsScroll(true);
@@ -25,6 +26,9 @@ const Header = () => {
     setSearchWord(e.target.value);
     navigate(`/search?q=${e.target.value}`);
   };
+  useEffect(() => {
+    setSearchWord('');
+  }, [pathname]);
 
   useEffect(() => {
     window.addEventListener('scroll', scrollHeader);
