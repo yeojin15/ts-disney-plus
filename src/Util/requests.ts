@@ -9,6 +9,7 @@ const requests: Requests = {
   reqeustTvNowPlaying: '/tv/on_the_air',
   requestTvPupular: '/tv/popular',
   requestTvTopRated: '/tv/top_rated',
+  requestGenres: '/discover/movie?with_genres=',
   requestActionMovies: '/discover/movie?with_genres=28',
   requestComedyMovies: '/discover/movie?with_genres=35',
   requestHorrorMovies: '/discover/movie?with_genres=27',

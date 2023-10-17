@@ -10,20 +10,31 @@ import 'swiper/css/pagination';
 import { baseURL, requestApi } from '../../Util/api';
 import MovieModal from './MovieModal';
 
-const MovieList = ({ title, id, fetchUrl }: MovieListProps) => {
+const MovieList = ({
+  title,
+  id,
+  fetchUrl,
+  movie,
+  sameGenre,
+  $padding,
+}: MovieListProps) => {
   const [movies, setMovies] = useState<MovieProps[] | null>(null);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [selectedMovie, setSelectedMovie] = useState<MovieProps | null>(
     null
   );
 
+  const dataToMap = sameGenre || movies;
+
   /** 각 항목에 맞는 api 요청 함수 */
   const requestMovies = useCallback(async () => {
-    try {
-      const res = await requestApi.get(fetchUrl);
-      setMovies(res.data.results);
-    } catch (error) {
-      console.log(error);
+    if (fetchUrl) {
+      try {
+        const res = await requestApi.get(fetchUrl);
+        setMovies(res.data.results);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }, [fetchUrl]);
 
@@ -38,7 +49,7 @@ const MovieList = ({ title, id, fetchUrl }: MovieListProps) => {
   };
 
   return (
-    <MovieListWrap>
+    <MovieListWrap $padding={$padding}>
       <h2>{title}</h2>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -63,10 +74,20 @@ const MovieList = ({ title, id, fetchUrl }: MovieListProps) => {
             slidesPerGroup: 3,
           },
         }}>
-        {movies?.map((movie) => (
+        {dataToMap?.map((movie) => (
           <SwiperSlide key={movie.id}>
             <SlideBox onClick={() => clickedMovie(movie)}>
-              <img src={baseURL + movie.backdrop_path} alt={movie.name} />
+              <img
+                src={
+                  movie.backdrop_path
+                    ? baseURL + movie.backdrop_path
+                    : movie.poster_path
+                    ? baseURL + movie.poster_path
+                    : '/images/noimage.png'
+                }
+                alt={movie.name}
+              />
+
               <div>
                 <p>
                   {movie.title ||

@@ -1,10 +1,16 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { mobile } from '../../Common/Global';
 
-export const MovieListWrap = styled.div`
+interface MovieSliderProps {
+  $padding?: number[];
+}
+export const MovieListWrap = styled.div<MovieSliderProps>`
   position: relative;
   width: 100%;
   padding: var(--gap-md) var(--gap-lg);
+  ${({ $padding }) => css`
+    padding: ${$padding?.map((val) => `${val}rem`).join(' ')};
+  `}
   h2 {
     font-size: var(--fz-xxl);
     margin-bottom: var(--gap-md);
@@ -33,6 +39,9 @@ export const MovieListWrap = styled.div`
   }
   @media (max-width: ${mobile}) {
     padding: var(--gap-sm) var(--gap-md);
+    ${({ $padding }) => css`
+      padding: ${$padding?.map((val) => `${val}rem`).join(' ')};
+    `}
     h2 {
       font-size: var(--fz-xl);
     }
@@ -196,10 +205,34 @@ export const ModalTitle = styled.div`
   @media (max-width: ${mobile}) {
     height: 30%;
   }
-  p {
+`;
+export const ModalTitleBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: ${mobile}) {
+    display: block;
+  }
+  div {
     font-size: var(--fz-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--gap-sm);
     @media (max-width: ${mobile}) {
       font-size: var(--fz-md);
+    }
+  }
+  span {
+    font-size: var(--fz-md);
+    @media (max-width: ${mobile}) {
+      font-size: var(--fz-sm);
+    }
+  }
+  p {
+    padding-left: var(--gap-md);
+    cursor: pointer;
+    &.btn-like {
+      color: var(--primary);
     }
   }
   h2 {
@@ -209,19 +242,15 @@ export const ModalTitle = styled.div`
       margin-bottom: 0;
     }
   }
-  span {
-    font-size: var(--fz-md);
-    @media (max-width: ${mobile}) {
-      font-size: var(--fz-sm);
-    }
-  }
 `;
 export const ModalInfo = styled.div`
   height: 65%;
   font-size: var(--fz-lg);
   line-height: var(--lh-md);
   padding-top: var(--gap-lg);
+  padding-right: var(--gap-sm);
   overflow-y: auto;
+  word-break: keep-all;
   @media (max-width: ${mobile}) {
     height: 70%;
     font-size: var(--fz-sm);

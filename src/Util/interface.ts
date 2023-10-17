@@ -21,6 +21,7 @@ export interface MovieProps {
   popularity?: number;
   release_date: string;
   first_air_date?: string;
+  runtime?: number;
   vote_average?: number;
   video?: boolean;
   videos?: { results: VideoResults[] };
@@ -35,7 +36,10 @@ export interface FooterLinkArray {
   href: string;
 }
 export interface MovieListProps {
-  title: string;
-  id: string | number;
-  fetchUrl: string;
+  title?: string;
+  id?: string | number;
+  fetchUrl?: string;
+  movie?: MovieProps | null;
+  sameGenre?: MovieProps[] | null;
+  $padding?: number[];
 }
