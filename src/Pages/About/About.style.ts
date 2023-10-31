@@ -5,9 +5,10 @@ export const AboutWrap = styled.div`
 `;
 export const Profile = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: var(--gap-md);
+  margin-bottom: var(--gap-xl);
   .profile-img {
     width: 50rem;
     height: 50rem;
@@ -24,5 +25,20 @@ export const Profile = styled.div`
   h2 {
     font-size: var(--fz-lg);
     font-weight: var(--fw-bold);
+  }
+`;
+export const BookmarkWrap = styled.div`
+  h2 {
+    font-size: var(--fz-lg);
+    font-weight: var(--fw-bold);
+    margin-bottom: var(--gap-xl);
+  }
+`;
+export const Bookmarks = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap-md);
+  gap: var(--gap-md);
+  li {
   }
 `;
