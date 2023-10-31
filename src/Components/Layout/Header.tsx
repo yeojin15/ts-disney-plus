@@ -52,13 +52,16 @@ const Header = () => {
         value={searchWord}
         onChange={searchValueChange}
       />
-      {isLogin ? (
+      {/* {isLogin ? (
         <Profile onClick={() => setIsLogin(false)}>
           <img src='/images/logo.svg' alt='profile' />
         </Profile>
       ) : (
         <LoginBtn onClick={() => setIsLogin(true)}>LOGIN</LoginBtn>
-      )}
+        )} */}
+      <Profile onClick={() => navigate('/about')}>
+        <img src='/images/logo.svg' alt='profile' />
+      </Profile>
     </HeaderWrap>
   );
 };
