@@ -1,8 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-export const mobile: string = '768px';
+export const mobile: string = "768px";
 export const GlobalStyle = createGlobalStyle`
   /** default theme */
+  // ssh test
   :root{
     --primary : #0063e5;
     --g_100: #13161f;
